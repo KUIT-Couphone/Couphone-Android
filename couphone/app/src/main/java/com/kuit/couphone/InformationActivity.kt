@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.kuit.couphone.data.Information
+import com.kuit.couphone.data.nickname
 import com.kuit.couphone.databinding.ActivityInfomationBinding
 import com.kuit.couphone.databinding.ActivitySplashBinding
 import java.text.SimpleDateFormat
@@ -47,7 +48,7 @@ class InformationActivity: AppCompatActivity() {
         binding.cafeNameTv.text = data.name
         Glide.with(binding.root).load(data.brandimg).into(binding.cafePhotoIv)
         binding.countTotalFlTv.text = "총 "+data.stampCount+"개"
-
+        binding.usernameFlTv.text = nickname
         binding.backIv.setOnClickListener {
             finish()
         }

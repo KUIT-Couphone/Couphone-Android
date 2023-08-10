@@ -201,6 +201,8 @@ class LoginActivity : AppCompatActivity() {
                             "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
                             "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}"
                 )
+                nickname = user.kakaoAccount?.profile?.nickname!!
+                profile_img = user.kakaoAccount?.profile?.thumbnailImageUrl
                 val userinfo =  user.kakaoAccount?.email?.let { user.kakaoAccount?.profile?.nickname?.let { it1 ->
                     User(it, it1,"admin")
                 } }
