@@ -52,15 +52,12 @@ class MyCouponFragment : Fragment() {
                     if(response.isSuccessful) {
                         val resp = response.body()
 
-                        Log.d("CouponGetResponse", resp.toString())
-                    }
-                    else{
-                        Log.d("CouponGetResponse", response.toString())
+
                     }
                 }
 
                 override fun onFailure(call: Call<UserBrandResponse>, t: Throwable) {
-                    Log.d("CouponGetResponse",t.message.toString())
+
                 }
 
             })
