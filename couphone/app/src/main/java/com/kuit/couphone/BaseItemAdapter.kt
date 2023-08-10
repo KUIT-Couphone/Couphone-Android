@@ -27,7 +27,7 @@ class BaseItemAdapter(private val itemList : ArrayList<BrandResult>) : RecyclerV
             binding.itemWebtoonCl.setOnClickListener{
                 itemClickListener.onItemClick(storeInfo)
             }
-            Glide.with(binding.root).load(storeInfo.brandImageUrl).into(binding.categoryImgIv)
+            Glide.with(binding.root).load(storeInfo.brandImageUrl).into(binding.categoryImgI)
             if(storeInfo.stampCount !=0 ) {
                 binding.couphoneCountBackgroundIv.text =
                     storeInfo.stampCount.toString() + " / 10"
