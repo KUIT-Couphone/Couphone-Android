@@ -30,3 +30,9 @@ data class GetBrandResponse(
     @SerializedName("stampCount") var stampCount : Int,
     @SerializedName("createdDate") var createdDate : String,
 )
+data class Information(
+    val name : String,
+    val createdDate: String?,
+    val brandimg : String,
+    val stampCount: Int,
+)

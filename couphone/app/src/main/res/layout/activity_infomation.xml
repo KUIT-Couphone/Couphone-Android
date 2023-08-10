@@ -109,46 +109,25 @@
                 app:layout_constraintStart_toEndOf="@id/cafe_name_tv" />
 
             <TextView
-                android:id="@+id/visitdate_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/lineseedkr_bd"
-                android:text="최근 방문 날짜 :"
-                app:layout_constraintStart_toStartOf="@id/cafe_check_iv"
-                app:layout_constraintTop_toBottomOf="@id/cafe_check_iv" />
-
-            <TextView
-                android:id="@+id/visitdate_update_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/lineseedkr_bd"
-                android:text="2023.06.16"
-                app:layout_constraintStart_toEndOf="@id/visitdate_tv"
-                app:layout_constraintTop_toBottomOf="@id/cafe_check_iv" />
-
-            <TextView
                 android:id="@+id/couphone_issueddate_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="25dp"
                 android:fontFamily="@font/lineseedkr_bd"
                 android:text="쿠폰 발급 날짜 :"
                 app:layout_constraintStart_toStartOf="@id/cafe_check_iv"
-                app:layout_constraintTop_toBottomOf="@id/visitdate_tv" />
+                app:layout_constraintTop_toBottomOf="@id/cafe_category_tv" />
 
             <TextView
                 android:id="@+id/couphone_issueddate_update_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="25dp"
                 android:fontFamily="@font/lineseedkr_bd"
                 android:text="2023.06.16"
                 app:layout_constraintStart_toEndOf="@id/couphone_issueddate_tv"
-                app:layout_constraintTop_toBottomOf="@id/visitdate_tv" />
+                app:layout_constraintTop_toBottomOf="@id/cafe_category_tv" />
 
             <!--<ImageView
                 android:id="@+id/couphone_issued_iv"
@@ -177,7 +156,7 @@
                 android:id="@+id/couphone_info_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="25dp"
                 android:fontFamily="@font/lineseedkr_bd"
                 android:lineSpacingExtra="8dp"
                 android:text="스탬프 10개 적립시\n1회 무료 이용권을 드려요!"
