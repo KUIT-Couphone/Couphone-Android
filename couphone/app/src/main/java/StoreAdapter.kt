@@ -37,7 +37,7 @@ class StoreAdapter(private val itemList : ArrayList<StoreResult>) : RecyclerView
             binding.storeNameTv.text = storeInfo.getBrandResponse.name
             binding.storeInfoTv.text = storeInfo.getBrandResponse.rewardDescription
 //            binding.categoryImgIv.setImageResource(storeInfo.getBrandResponse.brandImageUrl)
-            Glide.with(binding.root).load(storeInfo.getBrandResponse.brandImageUrl).into(binding.categoryImgIv)
+            Glide.with(binding.root).load(storeInfo.getBrandResponse.brandImageUrl).into(binding.categoryImgI)
 //            binding.categoryImgIv.setImageURI(storeInfo.getBrandResponse.brandImageUrl)
             binding.itemWebtoonCl.setOnClickListener{
                 itemClickListener.onItemClick(storeInfo)

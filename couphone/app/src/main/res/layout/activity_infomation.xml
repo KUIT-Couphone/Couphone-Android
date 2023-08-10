@@ -63,16 +63,25 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/back_btn_area"
             tools:layout_editor_absoluteX="0dp">
-
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cafe_photo_cv"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:elevation="0dp"
+                app:cardCornerRadius="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
             <ImageView
                 android:id="@+id/cafe_photo_iv"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="25dp"
                 android:src="@drawable/gray_rectangle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            </androidx.cardview.widget.CardView>
 
             <ImageView
                 android:id="@+id/cafe_check_iv"
@@ -80,8 +89,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/checkbox"
-                app:layout_constraintStart_toStartOf="@id/cafe_photo_iv"
-                app:layout_constraintTop_toBottomOf="@id/cafe_photo_iv" />
+                app:layout_constraintStart_toStartOf="@id/cafe_photo_cv"
+                app:layout_constraintTop_toBottomOf="@id/cafe_photo_cv" />
 
             <TextView
                 android:id="@+id/cafe_name_tv"
@@ -162,7 +171,7 @@
                 android:text="스탬프 10개 적립시\n1회 무료 이용권을 드려요!"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/cafe_photo_iv"
+                app:layout_constraintStart_toStartOf="@id/cafe_photo_cv"
                 app:layout_constraintTop_toBottomOf="@id/couphone_issueddate_tv" />
 
             <ImageView
@@ -183,7 +192,7 @@
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/lineseedkr_bd"
                 android:text="본 쿠폰은 최초 발급일로부터 6개월이 지나면 초기화됩니다."
-                app:layout_constraintStart_toStartOf="@id/cafe_photo_iv"
+                app:layout_constraintStart_toStartOf="@id/cafe_photo_cv"
                 app:layout_constraintTop_toBottomOf="@id/couphone_info_tv" />
 
 
@@ -355,7 +364,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:src="@drawable/couphone_background"
-                app:layout_constraintStart_toStartOf="@id/cafe_photo_iv"
+                app:layout_constraintStart_toStartOf="@id/cafe_photo_cv"
                 app:layout_constraintTop_toBottomOf="@id/information_fl" />
 
             <TextView
