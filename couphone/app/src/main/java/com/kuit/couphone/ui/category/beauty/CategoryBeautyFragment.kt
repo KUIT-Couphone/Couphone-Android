@@ -61,13 +61,6 @@ class CategoryBeautyFragment : Fragment() {
         binding.categoryListRv.adapter = adapter
         binding.categoryListRv.layoutManager = LinearLayoutManager(context)
         binding.categoryTv.text = "'뷰티'"
-        adapter!!.setOnItemClickListener(object : BaseItemAdapter.OnItemClickListener{
-            override fun onItemClick(itemList: BrandResult) {
-                val intent = Intent(requireContext(), InformationActivity::class.java)
-                startActivity(intent)
-            }
-
-        })
     }
     private fun fetchBrandData(sortedBy: Int) {
         val service =  getRetrofit().create(ApiInterface::class.java)

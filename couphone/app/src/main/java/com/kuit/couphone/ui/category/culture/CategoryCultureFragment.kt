@@ -58,15 +58,6 @@ class CategoryCultureFragment : Fragment() {
         binding.categoryListRv.adapter = adapter
         binding.categoryListRv.layoutManager = LinearLayoutManager(context)
         binding.categoryTv.text = "'문화'"
-        adapter!!.setOnItemClickListener(object : BaseItemAdapter.OnItemClickListener{
-            override fun onItemClick(itemList: BrandResult) {
-                val intent = Intent(requireContext(), InformationActivity::class.java)
-                val dataJson = Gson().toJson(Information(itemList.name,itemList.createdDate,itemList.brandImageUrl,itemList.stampCount))
-                intent.putExtra("Data", dataJson)
-                startActivity(intent)
-            }
-
-        })
     }
     private fun fetchBrandData(sortedBy: Int) {
         val service =  getRetrofit().create(ApiInterface::class.java)
@@ -89,9 +80,13 @@ class CategoryCultureFragment : Fragment() {
                         adapter!!.setOnItemClickListener(object : BaseItemAdapter.OnItemClickListener{
                             override fun onItemClick(itemList: BrandResult) {
                                 val intent = Intent(requireContext(), InformationActivity::class.java)
+                                val dataJson = Gson().toJson(Information(itemList.name,itemList.createdDate,itemList.brandImageUrl,itemList.stampCount))
+                                intent.putExtra("Data", dataJson)
                                 startActivity(intent)
                             }
+
                         })
+
                         adapter!!.notifyDataSetChanged()
                     }
                     else{
