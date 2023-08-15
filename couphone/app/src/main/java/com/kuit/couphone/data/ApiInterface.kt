@@ -26,7 +26,7 @@ interface ApiInterface {
     @GET("/brands")
     fun getBrand(
         @Header("Authorization") token: String,
-        @Query("category-id") categoryId: Int,
+        @Query("category-id") categoryId: Int?,
         @Query("name") name: String?,
         @Query("sorted-by") sortedBy: Int,
     ): Call<BrandResponse>

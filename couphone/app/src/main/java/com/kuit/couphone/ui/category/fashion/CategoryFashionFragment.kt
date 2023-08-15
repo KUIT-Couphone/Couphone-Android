@@ -11,12 +11,9 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.gson.Gson
 import com.kuit.couphone.*
-import com.kuit.couphone.data.ApiInterface
-import com.kuit.couphone.data.BrandResponse
-import com.kuit.couphone.data.StoreInfo
-import com.kuit.couphone.data.getRetrofit
-import com.kuit.couphone.data.user_token
+import com.kuit.couphone.data.*
 import com.kuit.couphone.databinding.FragmentCategoryBinding
 import com.kuit.couphone.ui.home.HomeFragment
 import retrofit2.Call
@@ -26,7 +23,7 @@ class CategoryFashionFragment : Fragment() {
 
     lateinit var binding: FragmentCategoryBinding
     var adapter : BaseItemAdapter?= null
-    var storeList = ArrayList<StoreInfo>()
+    var storeList = ArrayList<BrandResult>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -59,16 +56,7 @@ class CategoryFashionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = BaseItemAdapter(storeList)
-        binding.categoryListRv.adapter = adapter
-        binding.categoryListRv.layoutManager = LinearLayoutManager(context)
         binding.categoryTv.text = "'패션'"
-        adapter!!.setOnItemClickListener(object : BaseItemAdapter.OnItemClickListener{
-            override fun onItemClick(itemList: StoreInfo) {
-                val intent = Intent(requireContext(), InformationActivity::class.java)
-                startActivity(intent)    }
-
-        })
     }
     private fun fetchBrandData(sortedBy: Int) {
         val service =  getRetrofit().create(ApiInterface::class.java)
@@ -81,7 +69,21 @@ class CategoryFashionFragment : Fragment() {
                 ) {
                     if(response.isSuccessful) {
                         val resp = response.body()
-
+                        storeList.clear()
+                        storeList = resp!!.result as ArrayList<BrandResult>
+                        adapter = BaseItemAdapter(storeList)
+                        binding.categoryListRv.adapter = adapter
+                        binding.categoryListRv.layoutManager = LinearLayoutManager(context)
+                        adapter!!.setOnItemClickListener(object : BaseItemAdapter.OnItemClickListener{
+                            override fun onItemClick(itemList: BrandResult) {
+                                val intent = Intent(requireContext(), InformationActivity::class.java)
+                                val dataJson = Gson().toJson(Information(itemList.name,itemList.createdDate,itemList.brandImageUrl,itemList.stampCount))
+                                intent.putExtra("Data", dataJson)
+                                startActivity(intent)
+                            }
+                        })
+                        adapter!!.notifyDataSetChanged()
+                        adapter!!.notifyDataSetChanged()
                         Log.d("BrandResponse", resp.toString())
                     }
                     else{

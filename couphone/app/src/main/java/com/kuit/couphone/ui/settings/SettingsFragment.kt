@@ -8,10 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.kakao.sdk.user.UserApiClient
 import com.kuit.couphone.LoginActivity
 import com.kuit.couphone.MyCouponFragment
 import com.kuit.couphone.R
+import com.kuit.couphone.data.nickname
+import com.kuit.couphone.data.profile_img
 import com.kuit.couphone.databinding.FragmentSettingsBinding
 import com.kuit.couphone.ui.home.HomeFragment
 
@@ -30,7 +33,8 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        binding.nameInfoTv.text = nickname
+        Glide.with(binding.root).load(profile_img).into(binding.maskIv)
         binding.logoutTv.setOnClickListener {
             // 로그아웃
             UserApiClient.instance.logout { error ->
